@@ -28,6 +28,7 @@ blocks = [
 
 reqs = ["gym", "school", "store"]
 
+
 def get_best_apartment(blocks, reqs):
     max_block_distances = [float("-inf") for _ in blocks]
     total_blocks = len(blocks)
@@ -44,8 +45,10 @@ def get_best_apartment(blocks, reqs):
     min_val = min(max_block_distances)
     return max_block_distances.index(min_val)
 
+
 def get_dist(a,b):
     return abs(a-b)
+
 
 res = get_best_apartment(blocks, reqs)
 print(res)
