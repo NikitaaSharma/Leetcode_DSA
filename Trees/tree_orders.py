@@ -20,7 +20,7 @@ def printPreorder(root):
 
 def printPostorder(root):
     if root:
-        #Preorder  = node ->left ->right
+        #Preorder  = left -> right -> node
         printPostorder(root.left)
         printPostorder(root.right)  
         print(root.val, end=" ")

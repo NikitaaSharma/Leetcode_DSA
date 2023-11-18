@@ -5,14 +5,14 @@ class Node:
         self.right = None
 
 def isValidBST(root):
-    def validBST(root, min_val, max_val):
-        if not root:
+    def validBST(node, min_val, max_val):
+        if not node:
             return True
         
-        if not (min_val < root.val < max_val):
+        if not (min_val < node.val < max_val):
             return False
         
-        return validBST(root.left, min_val, root.val) and validBST(root.right, root.val, max_val)
+        return validBST(node.left, min_val, node.val) and validBST(node.right, node.val, max_val)
     
     return validBST(root, float("-inf"), float("inf"))
 
