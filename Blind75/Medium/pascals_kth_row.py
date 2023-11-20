@@ -8,7 +8,6 @@ def pascalsKthRow(k):
     res_row = []
     res_row.append(1)
     if k == 0:
-        print(res_row)
         return res_row
 
     prev_row = pascalsKthRow(k-1)
@@ -18,7 +17,6 @@ def pascalsKthRow(k):
         res_row.append(curr_row_val)
 
     res_row.append(1)
-    print(res_row)
     return res_row
 
 res = pascalsKthRow(6)
