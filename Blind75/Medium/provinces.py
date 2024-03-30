@@ -10,7 +10,7 @@ Return the total number of provinces.
 """
 
 isConnected = [
-    [1,1,0],
+    [1,1,1],
     [1,1,0],
     [0,0,1]
 ]
@@ -32,8 +32,10 @@ def findProvinces(isConnected):
 
     for i in range(n):
         if i not in visited:
+            print(f"i is {i}")
             connected_components += 1
             visited.add(i)
+            print(visited)
             dfs(i)
 
     return connected_components

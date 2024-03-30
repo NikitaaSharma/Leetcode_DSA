@@ -15,19 +15,19 @@ def countAndSay(n):
     if n == 1:
         return "1"
 
-    prev_term = countAndSay(n-1)
+    say = countAndSay(n-1)
     # an empty result string
     result = ""
     count = 1
-    current_char = prev_term[0]
-    for i in range(1, len(prev_term)):
+    current_char = say[0]
+    for i in range(1, len(say)):
         # increment count of the char till we find a different character
-        if prev_term[i] == current_char:
+        if say[i] == current_char:
             count +=1
         else:
             result += str(count) + str(current_char)
             # increment the current char to the next one
-            current_char = prev_term[i]
+            current_char = say[i]
             # reset the count to 1
             count = 1
 
@@ -35,6 +35,6 @@ def countAndSay(n):
     return result
 
 
-n = 9
+n = 4
 res = countAndSay(n)
 print(res)

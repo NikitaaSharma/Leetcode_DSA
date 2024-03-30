@@ -82,7 +82,7 @@ class LRUCache:
     def getMru(self):
         pass
 
-lru_cache = LRUCache(2)
+lru_cache = LRUCache(3)
 lru_cache.put(1,1)
 lru_cache.printll()
 lru_cache.put(2,2)
