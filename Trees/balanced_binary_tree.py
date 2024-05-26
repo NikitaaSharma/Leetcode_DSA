@@ -29,10 +29,10 @@ class Node:
         return self.height(root) != -1
     
     # Print preorder
-    def printTree(self, root):
-        print(root.key, end=" ")
-        self.printTree(root.left)
-        self.printTree(root.right)
+def printTree(root):
+    print(root.key, end=" ")
+    printTree(root.left)
+    printTree(root.right)
 
 
 root = Node(1)
@@ -46,4 +46,6 @@ root.left.left.right = Node(4)
 
 res = root.isBalanced(root)
 print(res)
+
+printTree(root)
 
