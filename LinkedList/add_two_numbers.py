@@ -13,21 +13,21 @@ class LinkedList:
         list3 = Node(0)
         temp = list3
         carry = 0
-        while list1 or list2 or carry!=0:
-            val1 = list1.val if list1 is not None else 0
-            val2 = list2.val if list2 is not None else 0
+        l1 = list1.head
+        l2 = list2.head
+        while l1 or l2 or carry!=0:
+            val1 = l1.val if l1 is not None else 0
+            val2 = l2.val if l2 is not None else 0
             new_val = val1 + val2 + carry
             carry = new_val // 10
             digit = new_val % 10
             temp.next = Node(digit)
             temp = temp.next
 
-            list1 = list1.next if list1 is not None else None
-            list2 = list2.next if list2 is not None else None
+            l1 = l1.next if l1 is not None else None
+            l2 = l2.next if l2 is not None else None
 
-        res = temp.next
-        temp.next = None
-        return res
+        return list3.next
 
     def add(self, data):
         new_data = Node(data)
@@ -54,7 +54,5 @@ llist2.add(3)
 print("Given list2")
 llist2.printllist()
 
-llist3 = LinkedList()
-llist3.mergeLinkedList(list1=llist, list2=llist2)
-# print("\Merged list")
-# llist3.printllist()
+res = llist.addTwoNumbers(list1=llist, list2=llist2)
+res.printllist()
