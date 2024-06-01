@@ -3,65 +3,58 @@ class ListNode:
         self.val = val
         self.next = None
 
-
 class LinkedList:
     def __init__(self):
         self.head = None
 
     def sortList(self, head):
-        if not self.head or not self.head.next:
+        if not head or not head.next:
             return head
-
-        # Find the middle of the linked list
-        slow = self.head
-        fast = self.head.next
-
+        slow = head
+        fast = head
         while fast and fast.next:
+            prev = slow
             slow = slow.next
             fast = fast.next.next
-
-        mid = slow.next
-        slow.next = None
-
+        # Split the list into two halves
+        mid = slow
+        prev.next = None
         # Recursively sort both halves
-        list1 = self.sortList(head)
-        list2 = self.sortList(mid)
+        l1 = self.sortList(head)
+        l2 = self.sortList(mid)
 
-        list3 = ListNode(0)
-        temp = list3
+        return self.merge(l1, l2)
 
-        while list1 and list2:
-            if list1.val < list2.val:
-                temp.next = list1
-                list1 = list1.next
+    def merge(self, l1, l2):
+        dummy = ListNode(0)
+        temp = dummy
+        while l1 and l2:
+            if l1.val < l2.val:
+                temp.next = l1
+                l1 = l1.next
             else:
-                temp.next = list2
-                list2 = list2.next
+                temp.next = l2
+                l2 = l2.next
             temp = temp.next
-
-        if list1:
-            temp.next = list1
-            list1 = list1.next
-
-        if list2:
-            temp.next = list2
-            list2 = list2.next
-
-        return list3.next
+        if l1:
+            temp.next = l1
+        if l2:
+            temp.next = l2
+        return dummy.next
 
     def add(self, data):
-        new_data = ListNode(data)
-        new_data.next = self.head
-        self.head = new_data
-
+        new_node = ListNode(data)
+        new_node.next = self.head
+        self.head = new_node
 
     def printllist(self):
         temp = self.head
         while temp:
             print(temp.val, end=" ")
             temp = temp.next
+        print()  # for newline
 
-
+# Example usage
 llist = LinkedList()
 llist.add(6)
 llist.add(2)
@@ -70,8 +63,14 @@ llist.add(7)
 llist.add(4)
 llist.add(3)
 llist.add(1)
-print("Given list")
+
+print("Given list:")
 llist.printllist()
-llist.sortList(llist)
-print("\nAfter sorting list")
-llist.printllist()
+
+res = llist.sortList(llist.head)
+
+llist2 = LinkedList()
+llist2.head = res
+
+print("After sorting list:")
+llist2.printllist()

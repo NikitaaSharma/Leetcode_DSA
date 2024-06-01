@@ -36,7 +36,7 @@ class LinkedList:
             size +=1
 
         lastNode.next = self.head
-        k = k % 2
+        k = k % size
 
         temp = self.head
         for _ in range(size - k -1):
@@ -55,4 +55,8 @@ llist.add(2)
 llist.add(1)
 
 llist.printll()
-print(llist.rotateList(2))
+res = llist.rotateList(2)
+llist2 = LinkedList()
+llist2.head = res
+print("\n")
+llist2.printll()

@@ -8,6 +8,17 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+    
+    def add(self, data):
+        new_data = Node(data)
+        new_data.next = self.head
+        self.head = new_data
+
+    def printllist(self):
+        temp = self.head
+        while temp:
+            print(temp.val, end=" ")
+            temp = temp.next
 
     def addTwoNumbers(self, list1, list2):
         list3 = Node(0)
@@ -29,22 +40,10 @@ class LinkedList:
 
         return list3.next
 
-    def add(self, data):
-        new_data = Node(data)
-        new_data.next = self.head
-        self.head = new_data
-
-    def printllist(self):
-        temp = self.head
-        while temp:
-            print(temp.val, end=" ")
-            temp = temp.next
-
-    
 llist = LinkedList()
-llist.add(30)
-llist.add(40)
-llist.add(20)
+llist.add(3)
+llist.add(4)
+llist.add(2)
 print("Given list1")
 llist.printllist()
 llist2 = LinkedList()
@@ -55,4 +54,6 @@ print("Given list2")
 llist2.printllist()
 
 res = llist.addTwoNumbers(list1=llist, list2=llist2)
-res.printllist()
+llist3 = LinkedList()
+llist3.head = res
+llist3.printllist()

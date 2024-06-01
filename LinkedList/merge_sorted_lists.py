@@ -1,4 +1,4 @@
-#Create a new list list3 with temp pointer and check the value of list1 and list2, insert the lesser value and move next
+#Create a new list list3 with temp pointer and check the value of list1 and l2, insert the lesser value and move next
 
 class Node:
     def __init__(self, val):
@@ -13,26 +13,27 @@ class LinkedList:
         list3 = Node(0)
         temp = list3
 
-        while list1 and list2:
-            if list1.val < list2.val:
-                temp.next = list1
-                list1 = list1.next
+        l1 = list1.head
+        l2 = list2.head
+
+        while l1 and l2:
+            if l1.val < l2.val:
+                temp.next = l1
+                l1 = l1.next
             else:
-                temp.next = list2
-                list2 = list2.next
+                temp.next = l2
+                l2 = l2.next
             temp = temp.next
 
-        if list1:
-            temp.next = list1
-            list1 = list1.next
+        if l1:
+            temp.next = l1
+            l1 = l1.next
 
-        if list2:
-            temp.next = list2
-            list2 = list2.next
+        if l2:
+            temp.next = l2
+            l2 = l2.next
 
         return list3.next
-
-
 
     def add(self, data):
         new_data = Node(data)
@@ -47,25 +48,20 @@ class LinkedList:
 
     
 llist = LinkedList()
-llist.add(10)
-llist.add(20)
-llist.add(30)
-llist.add(40)
-llist.add(50)
-llist.add(60)
+llist.add(4)
+llist.add(2)
+llist.add(1)
 print("Given list1")
 llist.printllist()
 llist2 = LinkedList()
-llist2.add(30)
-llist2.add(60)
-llist2.add(37)
-llist2.add(43)
-llist2.add(56)
-llist2.add(62)
+llist2.add(4)
+llist2.add(3)
+llist2.add(1)
 print("Given list2")
 llist2.printllist()
+merged_list_head = llist.mergeLinkedList(list1=llist, list2=llist2)
 
 llist3 = LinkedList()
-llist3.mergeLinkedList(list1=llist, list2=llist2)
-# print("\Merged list")
-# llist3.printllist()
+llist3.head = merged_list_head
+print("-_______")
+llist3.printllist()

@@ -79,9 +79,6 @@ class LRUCache:
             temp = temp.next
         print(" ")
 
-    def getMru(self):
-        pass
-
 lru_cache = LRUCache(3)
 lru_cache.put(1,1)
 lru_cache.printll()
@@ -101,4 +98,3 @@ ans = lru_cache.get(3)
 print(ans)
 ans = lru_cache.get(4)
 print(ans)
-

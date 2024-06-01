@@ -20,6 +20,6 @@ def reverseWords(s):
     return res
 
 
-s = "  hello world  "
+s = "sphinx of black quartz judge my vow"
 out = reverseWords(s)
 print(f'-{out}-')
